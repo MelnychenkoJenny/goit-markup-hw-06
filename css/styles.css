@@ -16,6 +16,9 @@
   --projects-border-color: #eeeeee;
   --client-icon-color: #afb1b8;
   --border-color-btn-modal: rgba(0, 0, 0, 0.1);
+  --border-color-btn-push-mail: rgba(255, 255, 255, 0.3);
+  --border-modal-input: rgba(33, 33, 33, 0.2);
+  --button-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   --team-card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   --project-card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -414,7 +417,8 @@ img {
   border: none;
 }
 
-.button.primary {
+.button.primary,
+.buttom.push {
   min-width: 216px;
   height: 50px;
 
@@ -426,12 +430,24 @@ img {
   line-height: 1.88;
   text-align: center;
   letter-spacing: 0.06em;
-  transition: background-color 250ms var(--timing-function);
+  box-shadow: var(--button-shadow);
+  transition: background-color 250ms var(--timing-function),
+  box-shadow 250ms var(--timing-function);
 }
 
 .button.primary:hover,
-.button.primary:focus {
+.button.primary:focus,
+.button.push:hover,
+.button.push:focus {
   background-color: var(--background-active-button);
+  box-shadow: var(--button-shadow);
+}
+
+.button.push {
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button.secondary {
@@ -510,10 +526,7 @@ img {
 .footer {
   display: flex;
   align-items: baseline;
-}
-
-.section-adress {
-  margin-right: 70px;
+  gap: 93px;
 }
 
 .logo-footer {
@@ -544,7 +557,7 @@ img {
   transition: color 250ms var(--timing-function);
 }
 
-.active-social {
+.active-social, .push-mail {
   display: block;
   margin-bottom: 20px;
   font-weight: 700;
@@ -567,6 +580,33 @@ img {
 .footer-social-link:hover,
 .footer-social-link:focus {
   background-color: var(--background-active-button);
+}
+
+.footer-form {
+  display: flex;
+}
+
+.footer-label {
+  margin-right: 12px;
+}
+
+.footer-input, .footer-input:focus {
+  width: 358px;
+  padding: 15px 16px;
+  border: 1px solid var(--border-color-btn-push-mail);
+  /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
+  border-radius: 4px;
+  background-color: var(--footer-background-color);
+}
+
+.footer-input::placeholder, .footer-input {
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--black-opacity-color);
+}
+
+.push-icon {
+  margin-left: 10px;
 }
 
 /* ----------------CSS styles for portfolio.html------------- */
@@ -724,4 +764,37 @@ img {
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
+}
+
+.modal-section {
+  padding: 40px;
+}
+
+.modal-text {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--title-text-color);
+  text-align: center;
+}
+
+.modal-label {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.modal-input {
+  margin-top: 4px;
+  padding: 11px 12px;
+  border: 1px solid var(--border-modal-input);
+  border-radius: 4px;
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
 }
