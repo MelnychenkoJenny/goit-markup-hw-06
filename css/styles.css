@@ -772,22 +772,33 @@ img {
 
 .modal-text {
   display: block;
-  margin-bottom: 12px;
   font-size: 20px;
   line-height: 1.15;
   color: var(--title-text-color);
   text-align: center;
 }
 
-.modal-label {
-  display: flex;
+.modal-field {
   position: relative;
-  flex-direction: column;
+  display: block;
+  font-size: 12px;
+  line-height: 1.1667;
+  letter-spacing: 0.01em;
+}
+
+.modal-form {
+  margin-top: 30px;
+}
+
+.modal-label {
+  position: absolute;
+  top: -50%;
+  left: 0;
 }
 
 .modal-input {
-  margin-top: 4px;
-  padding: 11px 12px;
+  width: 100%;
+  padding: 11px 30px;
   border: 1px solid var(--border-modal-input);
   border-radius: 4px;
 }
@@ -797,4 +808,16 @@ img {
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
+  fill: currentColor;
 }
+
+.modal-field:focus-within > .modal-icon {
+  fill: var(--accent-color);
+}
+
+.modal-input:focus {
+  border: var(--accent-color);
+}
+
+
+
