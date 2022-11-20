@@ -7,6 +7,7 @@
   --footer-background-color: #2f303a;
   --black-color: #000000;
   --black-opacity-color: rgba(255, 255, 255, 0.6);
+  --modal-comment-placeholder: rgba(117, 117, 117, 0.5);
   --background-active-button: #188ce8;
   --background-footer-icon: rgba(255, 255, 255, 0.1);
   --background-item-work: rgba(47, 48, 58, 0.8);
@@ -432,7 +433,7 @@ img {
   letter-spacing: 0.06em;
   box-shadow: var(--button-shadow);
   transition: background-color 250ms var(--timing-function),
-  box-shadow 250ms var(--timing-function);
+    box-shadow 250ms var(--timing-function);
 }
 
 .button.primary:hover,
@@ -590,13 +591,20 @@ img {
   margin-right: 12px;
 }
 
-.footer-input, .footer-input:focus {
+.footer-input {
   width: 358px;
   padding: 15px 16px;
   border: 1px solid var(--border-color-btn-push-mail);
   /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
   border-radius: 4px;
   background-color: var(--footer-background-color);
+  transition: border-color 250ms var(--timing-function), 
+    outline 250ms var(--timing-function);
+}
+
+.footer-input:focus {
+  border-color: var(--accent-color);
+  outline: var(--accent-color);
 }
 
 .footer-input::placeholder, .footer-input {
@@ -747,7 +755,7 @@ img {
   border-radius: 4px;
   opacity: 1;
   transition: transform 250ms var(--timing-function),
-  opacity 250ms var(--timing-function);
+    opacity 250ms var(--timing-function);
 }
 
 .modal-button {
@@ -764,6 +772,16 @@ img {
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
+  transition: color 250ms var(--timing-function);
+}
+
+.modal-icon-close {
+  fill: currentColor;
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  color: var(--accent-color);
 }
 
 .modal-section {
@@ -772,6 +790,7 @@ img {
 
 .modal-text {
   display: block;
+  margin-bottom: 12px;
   font-size: 20px;
   line-height: 1.15;
   color: var(--title-text-color);
@@ -779,6 +798,73 @@ img {
 }
 
 .modal-field {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.1667;
+  letter-spacing: 0.01em;
+}
+
+.modal-field:last-of-type {
+  margin-bottom: 20px;
+}
+
+.modal-input {
+  margin-top: 4px;
+  padding: 11px 40px;
+  border: 1px solid var(--border-modal-input);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 250ms var(--timing-function),
+  outline 250ms var(--timing-function);
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  fill: var(--title-text-color);
+  transition: fill 250ms var(--timing-function);
+
+}
+
+.modal-field:focus-within > .modal-icon {
+  fill: var(--accent-color);
+}
+
+.modal-input:focus {
+  border-color: var(--accent-color);
+  outline: var(--accent-color);
+}
+
+.modal-comment {
+  margin-top: 4px;
+  resize: none;
+  border: 1px solid var(--border-modal-input);
+  border-radius: 4px;
+  padding: 12px 16px;
+  transition: border-color 250ms var(--timing-function),
+  outline 250ms var(--timing-function);
+}
+
+.modal-comment::placeholder {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: var(--modal-comment-placeholder);
+}
+
+.modal-comment:focus {
+  border-color: var(--accent-color);
+  outline: var(--accent-color);
+}
+
+/* Варіант оформлення лейбл Ім'я абсолютно зпозиціонувавши його зверху над інпутом, 
+прибравши флекс, щоб не використовувати ід-ішники. */
+
+/* .modal-field {
   position: relative;
   display: block;
   font-size: 12px;
@@ -817,7 +903,4 @@ img {
 
 .modal-input:focus {
   border: var(--accent-color);
-}
-
-
-
+} */
