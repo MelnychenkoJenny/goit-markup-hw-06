@@ -599,7 +599,6 @@ button {
   /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
   border-radius: 4px;
   background-color: var(--footer-background-color);
-  cursor: pointer;
   transition: border-color 250ms var(--timing-function),
     outline 250ms var(--timing-function);
 }
@@ -800,12 +799,15 @@ button {
   margin-bottom: 20px;
 }
 
+.modal-label {
+  
+  margin-bottom: 4px;
+}
+
 .modal-input {
-  margin-top: 4px;
   padding: 11px 40px;
   border: 1px solid var(--border-modal-input);
   border-radius: 4px;
-  cursor: pointer;
   transition: border-color 250ms var(--timing-function),
     outline 250ms var(--timing-function);
 }
@@ -836,7 +838,6 @@ button {
   border: 1px solid var(--border-modal-input);
   border-radius: 4px;
   padding: 12px 16px;
-  cursor: pointer;
   transition: border-color 250ms var(--timing-function),
     outline 250ms var(--timing-function);
 }
@@ -879,6 +880,10 @@ button {
 .checkbox:checked+.checkbox-icon {
   background-color: var(--accent-color);
   border-color: transparent;
+}
+
+.checkbox:focus+.checkbox-icon {
+  box-shadow: var(--button-shadow);
 }
 
 .checkbox-label {
